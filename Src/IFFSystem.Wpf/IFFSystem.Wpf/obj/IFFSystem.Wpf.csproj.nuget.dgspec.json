@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\project\\Other\\IFFSystem\\Src\\IFFSystem.Wpf\\IFFSystem.Wpf\\IFFSystem.Wpf.csproj": {}
+  },
+  "projects": {
+    "F:\\project\\Other\\IFFSystem\\Src\\IFFSystem.Wpf\\IFFSystem.Wpf\\IFFSystem.Wpf.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\project\\Other\\IFFSystem\\Src\\IFFSystem.Wpf\\IFFSystem.Wpf\\IFFSystem.Wpf.csproj",
+        "projectName": "IFFSystem.Wpf",
+        "projectPath": "F:\\project\\Other\\IFFSystem\\Src\\IFFSystem.Wpf\\IFFSystem.Wpf\\IFFSystem.Wpf.csproj",
+        "packagesPath": "C:\\Users\\yzc\\.nuget\\packages\\",
+        "outputPath": "F:\\project\\Other\\IFFSystem\\Src\\IFFSystem.Wpf\\IFFSystem.Wpf\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\yzc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "Prism.Unity": {
+              "target": "Package",
+              "version": "[8.0.0.1909, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
