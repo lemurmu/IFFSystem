@@ -1,0 +1,828 @@
+﻿<UserControl
+    x:Class="IFFSystem.Wpf.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IFFSystem.Wpf.Views"
+    xmlns:map="clr-namespace:IFFSystem.Wpf"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="800"
+    d:DesignWidth="1500"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="#303030"
+    FontFamily="Microsoft Yahei"
+    Foreground="White"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style
+            x:Key="DataGridStyle"
+            BasedOn="{StaticResource MaterialDesignDataGrid}"
+            TargetType="DataGrid">
+            <Style.Setters>
+                <Setter Property="AutoGenerateColumns" Value="False" />
+                <Setter Property="CanUserSortColumns" Value="False" />
+                <Setter Property="CanUserAddRows" Value="False" />
+                <Setter Property="IsReadOnly" Value="True" />
+                <Setter Property="CanUserResizeColumns" Value="False" />
+                <Setter Property="SelectionMode" Value="Single" />
+                <Setter Property="SelectionUnit" Value="FullRow" />
+                <Setter Property="CanUserDeleteRows" Value="False" />
+                <Setter Property="CanUserSortColumns" Value="False" />
+                <Setter Property="CanUserReorderColumns" Value="False" />
+
+                <!--  鼠标滚动  -->
+                <!--<Setter Property="IsHitTestVisible" Value="False" />-->
+
+            </Style.Setters>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.3*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  标题菜单  -->
+        <materialDesign:ColorZone
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Stretch"
+            Mode="PrimaryMid">
+            <StackPanel Margin="2" Orientation="Horizontal">
+                <Image
+                    Width="40"
+                    Height="40"
+                    Margin="10,0,10,0"
+                    Source="../Resources/company.ico" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="30"
+                    Style="{StaticResource MaterialDesignHeadline1TextBlock}"
+                    Text="敌我信号侦收识别系统"
+                    TextAlignment="Center" />
+                <RadioButton
+                    Margin="50,4,4,4"
+                    IsChecked="True"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="Airplane" />
+                        <TextBlock Margin="0,5" Text="ADS-B信号侦收" />
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    Margin="4"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="RadioTower" />
+                        <TextBlock Margin="0,5" Text="IFF信号侦收" />
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    Margin="4"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="Waveform" />
+                        <TextBlock Margin="0,5" Text="俄制脉冲侦收" />
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    Margin="4"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="AirplaneTakeoff" />
+                        <TextBlock Margin="0,5" Text="ACARS信号侦收" />
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    Margin="4"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="Ferry" />
+                        <TextBlock Margin="0,5" Text="AIS信号侦收" />
+                    </StackPanel>
+
+                </RadioButton>
+                <RadioButton
+                    Margin="4"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="HelpCircle" />
+                        <TextBlock Margin="0,5" Text="系统帮助" />
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton
+                    Margin="4"
+                    IsChecked="False"
+                    Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="36"
+                            Height="36"
+                            HorizontalAlignment="Center"
+                            Kind="CloseCircle" />
+                        <TextBlock Margin="0,5" Text="退出系统" />
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+        <!--  主面板  -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <map:MapControl
+                x:Name="mapControl"
+                Margin="5"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                MaxZoom="24"
+                MinZoom="1"
+                Zoom="13" />
+            <GridSplitter
+                Grid.Row="1"
+                Height="2"
+                BorderBrush="BlueViolet"
+                BorderThickness="1" />
+            <DataGrid
+                Grid.Row="2"
+                Margin="5,0"
+                Background="#303030"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                ItemsSource="{Binding AdsDataCollection}"
+                Style="{StaticResource DataGridStyle}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="auto" Binding="{Binding TimeMark}">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="时标" TextAlignment="Center" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Frequency}"
+                        Header="频率(MHz)" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding ICAO}"
+                        Header="飞机地址码" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding TailNumber}"
+                        Header="机尾号" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Country}"
+                        Header="国籍" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding FlightNumber}"
+                        Header="航班号/注册号" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding PlaneProperty}"
+                        Header="飞机属性" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Lat}"
+                        Header="纬度" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Lnt}"
+                        Header="经度" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding Height}"
+                        Header="高度" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding AirSpend}"
+                        Header="航速" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding AirDirection}"
+                        Header="航向" />
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding ModeData}"
+                        Header="附加报文" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <!--  左侧操作面板  -->
+        <ScrollViewer
+            Grid.Row="1"
+            Grid.Column="0"
+            Width="Auto"
+            Margin="5,1,1,1"
+            VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Expander
+                    Margin="0,2"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    IsExpanded="false">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="30"
+                                Height="30"
+                                Kind="CogOutline" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Text="全局操作" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel
+                        Margin="10"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Button Margin="1,5" Content="全局复位" />
+                        <TextBlock Margin="1,5" Text="传输方式:" />
+                        <ComboBox
+                            Margin="1,5"
+                            HorizontalContentAlignment="Center"
+                            materialDesign:HintAssist.Hint="Search"
+                            materialDesign:HintAssist.HintOpacity=".26"
+                            IsEditable="False"
+                            SelectedIndex="0">
+                            <ComboBoxItem Content="识别结果" />
+                            <ComboBoxItem Content="脉冲" />
+                            <ComboBoxItem Content="脉冲和识别结果" />
+                        </ComboBox>
+                        <Button Margin="1,5" Content="开始传输" />
+                        <Button Margin="1,5" Content="停止传输" />
+                        <DatePicker
+                            Width="auto"
+                            Margin="1,5"
+                            materialDesign:HintAssist.Hint="Pick Date"
+                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+                        <Button Margin="1,5" Content="系統授时" />
+                    </StackPanel>
+                </Expander>
+
+                <Expander
+                    Grid.Row="1"
+                    Margin="0,2"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    IsExpanded="False">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="30"
+                                Height="30"
+                                Kind="SawtoothWave" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Text="IFF通道参数设置" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="频率:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="1090"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="MHz"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="带宽:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="100"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="MHz"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="通道1衰减:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="2"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="dB"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="通道2衰减:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="2"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="dB"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="通道3衰减:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="2"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="dB"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="通道4衰减:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="2"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="dB"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+
+                <Expander
+                    Grid.Row="2"
+                    Margin="0,2"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    IsExpanded="False">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="30"
+                                Height="30"
+                                Kind="CosineWave" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Text="ACARS通道参数设置" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="频率:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="131.450"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="MHz"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="带宽:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="12.5"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="MHz"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="衰减:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="2"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="dB"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+
+                <Expander
+                    Grid.Row="3"
+                    Margin="0,2"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    IsExpanded="False">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="30"
+                                Height="30"
+                                Kind="SineWave" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Text="AIS通道参数设置" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="频率:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="161.975"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="MHz"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="带宽:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="20"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="MHz"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="衰减:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="80"
+                                Margin="5"
+                                Text="1"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="5"
+                                VerticalAlignment="Center"
+                                Text="dB"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+
+                <Expander
+                    Grid.Row="5"
+                    Margin="0,2"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    IsExpanded="False">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="30"
+                                Height="30"
+                                Kind="ElevatorDown" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Text="数据采集设置" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="存储路径:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="5"
+                                Text="C:\doucument\record"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="间隔时间:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="5"
+                                Text="10"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Margin="1"
+                                VerticalAlignment="Center"
+                                Text="S"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="是否压缩:"
+                                TextAlignment="Center" />
+                            <CheckBox Margin="5" />
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+
+                <Expander
+                    Grid.Row="6"
+                    Margin="0,2"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    IsExpanded="True">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="30"
+                                Height="30"
+                                Kind="Network" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                FontSize="15"
+                                Text="网络通信设置" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <StackPanel Margin="10" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="设备IP:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="35,5,0,5"
+                                Text="192.168.0.199"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="设备端口:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="21,5,0,5"
+                                Text="8088"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="态势IP:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="35,5,0,5"
+                                Text="192.168.0.199"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="态势端口:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="21,5,0,5"
+                                Text="8088"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="数据库IP:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="23,5,0,5"
+                                Text="192.168.0.199"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                Margin="2"
+                                VerticalAlignment="Center"
+                                Text="数据库端口:"
+                                TextAlignment="Center" />
+                            <TextBox
+                                Width="100"
+                                Margin="10,5"
+                                Text="8088"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+            </Grid>
+        </ScrollViewer>
+
+        <!--  状态栏  -->
+        <materialDesign:ColorZone
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Stretch"
+            Mode="PrimaryMid">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Margin="10,5"
+                        VerticalAlignment="Center"
+                        Text="时标:2022-05-10" />
+                    <TextBlock
+                        Margin="30,5"
+                        VerticalAlignment="Center"
+                        Text="GPS定位:30.10384,103.45689" />
+                    <Separator
+                        Margin="20,6,5,6"
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <TextBlock
+                        Margin="2,5"
+                        VerticalAlignment="Center"
+                        Text="板卡温度:68°C" />
+                    <TextBlock
+                        Margin="30,5"
+                        VerticalAlignment="Center"
+                        Text="电流:5mA" />
+                    <TextBlock
+                        Margin="30,5"
+                        VerticalAlignment="Center"
+                        Text="电压:10mV" />
+                    <Separator
+                        Margin="20,6,5,6"
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <TextBlock
+                        Margin="2,5"
+                        VerticalAlignment="Center"
+                        Text="IFF版本:2021-11-19" />
+                    <TextBlock
+                        Margin="30,5"
+                        VerticalAlignment="Center"
+                        Text="AIS版本:2021-11-19" />
+                    <TextBlock
+                        Margin="30,5"
+                        VerticalAlignment="Center"
+                        Text="ACARS版本:2021-11-19" />
+                    <Separator
+                        Margin="20,6,5,6"
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    <TextBlock
+                        Margin="10,5"
+                        VerticalAlignment="Center"
+                        Text="本振:正常" />
+                    <TextBlock
+                        Margin="40,5"
+                        VerticalAlignment="Center"
+                        Text="风扇:正常" />
+                </StackPanel>
+                <TextBlock
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Text="xxxxxxxx有限公司" />
+            </Grid>
+        </materialDesign:ColorZone>
+
+    </Grid>
+</UserControl>

@@ -17,7 +17,7 @@ namespace IFFSystem.Wpf
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+           
         }
     }
 }

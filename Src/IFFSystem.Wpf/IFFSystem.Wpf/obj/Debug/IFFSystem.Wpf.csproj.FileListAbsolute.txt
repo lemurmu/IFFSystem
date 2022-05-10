@@ -1,5 +1,9 @@
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\IFFSystem.Wpf.exe
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\IFFSystem.Wpf.pdb
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\MaterialDesignColors.dll
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\MaterialDesignColors.pdb
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\MaterialDesignThemes.Wpf.dll
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\MaterialDesignThemes.Wpf.pdb
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Microsoft.Xaml.Behaviors.dll
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Prism.dll
@@ -14,11 +18,14 @@ F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Unity.Abstr
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Unity.Abstractions.pdb
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Unity.Container.dll
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\Unity.Container.pdb
-F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.csproj.AssemblyReference.cache
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\Views\MainWindow.baml
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\Views\MainView.g.cs
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\Views\MainWindow.g.cs
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\App.g.cs
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf_MarkupCompile.cache
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf_MarkupCompile.lref
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\App.baml
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\Views\MainView.baml
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.g.resources
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.Properties.Resources.resources
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.csproj.GenerateResource.cache
@@ -26,3 +33,7 @@ F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.W
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.csproj.CopyComplete
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.exe
 F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.pdb
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\GMap.NET.Core.dll
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\bin\Debug\GMap.NET.WindowsPresentation.dll
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\project\Other\IFFSystem\Src\IFFSystem.Wpf\IFFSystem.Wpf\obj\Debug\IFFSystem.Wpf.csproj.AssemblyReference.cache

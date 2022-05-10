@@ -1,9 +1,16 @@
-﻿<Window x:Class="IFFSystem.Wpf.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:prism="http://prismlibrary.com/"
-        prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="{Binding Title}" Height="350" Width="525">
+﻿<Window
+    x:Class="IFFSystem.Wpf.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="573.887"
+    Height="341.498"
+    Icon="../Resources/company.ico"
+    Background="#303030"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    WindowState="Maximized">
+
     <Grid>
         <ContentControl prism:RegionManager.RegionName="ContentRegion" />
     </Grid>

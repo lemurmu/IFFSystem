@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "f48uHdfKhWF3zmDaWNMu4Ktj0mJEqYhJgU4h/TC7xhGYLXC8PZcG5QKcpaz9UMcI6uXSjG0fCeWfg/cMlCNIMQ==",
+  "dgSpecHash": "syU+/SSR7YSVq9ZFLhqisqMliv7imgI0xI0bUIT+s2Ne3uW0nPULddJdfuFYW3ioQklmpZ8qbpG7W0b/8iv/aw==",
   "success": true,
   "projectFilePath": "F:\\project\\Other\\IFFSystem\\Src\\IFFSystem.Wpf\\IFFSystem.Wpf\\IFFSystem.Wpf.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\yzc\\.nuget\\packages\\gmap.net.presentation\\1.7.5\\gmap.net.presentation.1.7.5.nupkg.sha512",
+    "C:\\Users\\yzc\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
+    "C:\\Users\\yzc\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512",
     "C:\\Users\\yzc\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
     "C:\\Users\\yzc\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
     "C:\\Users\\yzc\\.nuget\\packages\\prism.unity\\8.0.0.1909\\prism.unity.8.0.0.1909.nupkg.sha512",
