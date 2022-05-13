@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,10 +17,22 @@ namespace IFFSystem.Wpf.ViewModels
             {
                 AdsDataCollection.Add(new AdsbData());
             }
-          
+
         }
         public ObservableCollection<AdsbData> AdsDataCollection { get; set; }
 
+        private DateTime data = DateTime.Now;
+        public DateTime Date
+        {
+            get { return data; }
+            set{  SetProperty(ref data, value);}
+        }
+
+        private DateTime time = DateTime.Now;
+        public DateTime Time {
+            get { return time; }
+            set { SetProperty(ref time, value); }
+        }
     }
 
     public class AdsbData : Prism.Mvvm.BindableBase

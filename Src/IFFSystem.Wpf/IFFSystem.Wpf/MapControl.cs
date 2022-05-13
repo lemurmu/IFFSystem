@@ -4,6 +4,7 @@ using GMap.NET.Projections;
 using GMap.NET.WindowsPresentation;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,6 +95,45 @@ namespace IFFSystem.Wpf
             {
                 return name;
             }
+        }
+    }
+
+
+    public abstract class AMapProviderBase : GMapProvider
+    {
+        public AMapProviderBase()
+        {
+            MaxZoom = null;
+            RefererUrl = "http://www.amap.com/";
+            //Copyright = string.Format("©{0} 高德 Corporation, ©{0} NAVTEQ, ©{0} Image courtesy of NASA", DateTime.Today.Year);    
+        }
+
+        public override PureProjection Projection => MercatorProjection.Instance;
+
+        GMapProvider[] overlays;
+        public override GMapProvider[] Overlays
+        {
+            get
+            {
+                if (overlays == null)
+                {
+                    overlays = new GMapProvider[] { this };
+                }
+                return overlays;
+            }
+        }
+    }
+
+    public class AMapProvider : AMapProviderBase
+    {
+        static Guid id = new Guid("EF3DD303-3F74-4938-BF40-232D1595EE88");
+        public override Guid Id => id;
+        public override string Name => "AMap";
+
+        public override PureImage GetTileImage(GPoint pos, int zoom)
+        {
+            var file = File.ReadAllBytes($@".\tiles\{zoom}\{pos.X}-{pos.Y}.jpg");
+            return GetTileImageFromArray(file);
         }
     }
 }

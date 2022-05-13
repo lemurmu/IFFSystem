@@ -1,6 +1,8 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using IFFSystem.Wpf.ViewModels;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,11 +44,11 @@ namespace IFFSystem.Wpf.Views
 
             mapControl.MapProvider = BaiduMapProvider.Instance; //google china 地图
             mapControl.MinZoom = 2;  //最小缩放
-            mapControl.MaxZoom = 10; //最大缩放
+            mapControl.MaxZoom = 15; //最大缩放
             mapControl.Zoom = 6;     //当前缩放
             mapControl.ShowCenter = false; //不显示中心十字点
             mapControl.DragButton = MouseButton.Left; //左键拖拽地图
-            mapControl.Position = new PointLatLng(30.67, 104.06); //地图中心位置：南京
+            mapControl.Position = new PointLatLng(30.659462, 104.065735); //地图中心位置：成都
 
             mapControl.MouseLeftButtonDown += new MouseButtonEventHandler(mapControl_MouseLeftButtonDown);
         }
@@ -62,6 +64,26 @@ namespace IFFSystem.Wpf.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             InitMap();
+            _vm = this.DataContext as MainViewModel;
+        }
+
+        private MainViewModel _vm = null;
+
+
+        public void CombinedDialogOpenedEventHandler(object sender, DialogOpenedEventArgs eventArgs)
+        {
+            CombinedCalendar.SelectedDate = _vm.Date;
+            CombinedClock.Time = _vm.Time;
+        }
+
+        public void CombinedDialogClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
+        {
+            if (Convert.ToBoolean(Convert.ToUInt16(eventArgs.Parameter)) && CombinedCalendar.SelectedDate is DateTime selectedDate)
+            {
+                DateTime combined = selectedDate.AddSeconds(CombinedClock.Time.TimeOfDay.TotalSeconds);
+                _vm.Time = combined;
+                _vm.Date = combined;
+            }
         }
     }
 }
