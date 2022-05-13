@@ -144,6 +144,7 @@
                             Width="36"
                             Height="36"
                             HorizontalAlignment="Center"
+                            Foreground="DeepSkyBlue"
                             Kind="HelpCircle" />
                         <TextBlock Margin="0,5" Text="系统帮助" />
                     </StackPanel>
@@ -157,6 +158,7 @@
                             Width="36"
                             Height="36"
                             HorizontalAlignment="Center"
+                            Foreground="Red"
                             Kind="CloseCircle" />
                         <TextBlock Margin="0,5" Text="退出系统" />
                     </StackPanel>
@@ -171,19 +173,25 @@
                 <RowDefinition Height="10" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <map:MapControl
-                x:Name="mapControl"
-                Margin="5"
-                BorderBrush="Gray"
-                BorderThickness="1"
-                MaxZoom="24"
-                MinZoom="1"
-                Zoom="13" />
+            <Grid Margin="2">
+                <map:MapControl
+                    x:Name="mapControl"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    MaxZoom="24"
+                    MinZoom="1"
+                    Zoom="13" />
+            </Grid>
+
             <GridSplitter
                 Grid.Row="1"
-                Height="2"
-                BorderBrush="BlueViolet"
-                BorderThickness="1" />
+                Height="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Background="Gray"
+                BorderBrush="White"
+                BorderThickness="1"
+                ShowsPreview="True" />
             <DataGrid
                 Grid.Row="2"
                 Margin="5,0"
@@ -193,11 +201,10 @@
                 ItemsSource="{Binding AdsDataCollection}"
                 Style="{StaticResource DataGridStyle}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="auto" Binding="{Binding TimeMark}">
-                        <DataGridTextColumn.Header>
-                            <TextBlock Text="时标" TextAlignment="Center" />
-                        </DataGridTextColumn.Header>
-                    </DataGridTextColumn>
+                    <DataGridTextColumn
+                        Width="auto"
+                        Binding="{Binding TimeMark}"
+                        Header="时标" />
                     <DataGridTextColumn
                         Width="auto"
                         Binding="{Binding Frequency}"
@@ -763,11 +770,11 @@
                     <TextBlock
                         Margin="10,5"
                         VerticalAlignment="Center"
-                        Text="时标:2022-05-10" />
+                        Text="时标: 2022-05-10" />
                     <TextBlock
                         Margin="30,5"
                         VerticalAlignment="Center"
-                        Text="GPS定位:30.10384,103.45689" />
+                        Text="GPS定位: 30.10384,103.45689" />
                     <Separator
                         Margin="20,6,5,6"
                         BorderBrush="White"
@@ -776,15 +783,15 @@
                     <TextBlock
                         Margin="2,5"
                         VerticalAlignment="Center"
-                        Text="板卡温度:68°C" />
+                        Text="板卡温度: 68°C" />
                     <TextBlock
                         Margin="30,5"
                         VerticalAlignment="Center"
-                        Text="电流:5mA" />
+                        Text="电流: 5mA" />
                     <TextBlock
                         Margin="30,5"
                         VerticalAlignment="Center"
-                        Text="电压:10mV" />
+                        Text="电压: 10mV" />
                     <Separator
                         Margin="20,6,5,6"
                         BorderBrush="White"
@@ -793,15 +800,15 @@
                     <TextBlock
                         Margin="2,5"
                         VerticalAlignment="Center"
-                        Text="IFF版本:2021-11-19" />
+                        Text="IFF版本: 2021-11-19" />
                     <TextBlock
                         Margin="30,5"
                         VerticalAlignment="Center"
-                        Text="AIS版本:2021-11-19" />
+                        Text="AIS版本: 2021-11-19" />
                     <TextBlock
                         Margin="30,5"
                         VerticalAlignment="Center"
-                        Text="ACARS版本:2021-11-19" />
+                        Text="ACARS版本: 2021-11-19" />
                     <Separator
                         Margin="20,6,5,6"
                         BorderBrush="White"
