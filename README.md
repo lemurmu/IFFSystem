@@ -1,6 +1,6 @@
 # IFFSystem
 
-*This is an IFF system, including WPF version and QT version.*
+*This is an IFF signal interception and identification system, including WPF version and QT version.*
 
 
 
