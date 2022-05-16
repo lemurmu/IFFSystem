@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/airplane.png</file>
+        <file>Image/Airplane_Landing.png</file>
+        <file>Image/bj.png</file>
+        <file>Image/company.ico</file>
+        <file>Image/exit.png</file>
+        <file>Image/gametest.png</file>
+        <file>Image/gametest_focus.png</file>
+        <file>Image/help-fill.png</file>
+        <file>Image/infoextend.png</file>
+        <file>Image/infoextend_focus.png</file>
+        <file>Image/logo.png</file>
+        <file>Image/positiontest.png</file>
+        <file>Image/positiontest_focus.png</file>
+        <file>Image/pulse.png</file>
+        <file>Image/sharpicons_signal-4.png</file>
+        <file>Image/sharpicons_signal-wave (1).png</file>
+        <file>Image/ship.png</file>
+        <file>Image/SIGNAL.png</file>
+        <file>Image/speedtest.png</file>
+        <file>Image/speedtest_focus.png</file>
+        <file>Image/titleclose.png</file>
+        <file>Image/titlemax.png</file>
+        <file>Image/titlemenu.png</file>
+        <file>Image/titlemini.png</file>
+        <file>Image/troublecheck.png</file>
+        <file>Image/troublecheck_focus.png</file>
+        <file>Image/websitetest.png</file>
+        <file>Image/websitetest_focus.png</file>
+        <file>Image/wifitest.png</file>
+        <file>Image/wifitest_focus.png</file>
+        <file>Image/无线电波.png</file>
+        <file>Image/轮船.png</file>
+    </qresource>
+</RCC>
