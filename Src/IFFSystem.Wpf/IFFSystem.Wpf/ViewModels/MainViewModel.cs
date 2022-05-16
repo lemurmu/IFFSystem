@@ -15,9 +15,9 @@ namespace IFFSystem.Wpf.ViewModels
             AdsDataCollection = new ObservableCollection<AdsbData>();
             for (int i = 0; i < 100; i++)
             {
-                AdsDataCollection.Add(new AdsbData());
+                AdsDataCollection.Add(new AdsbData { SerialNum = AdsDataCollection.Count+1, }) ;
             }
-
+            AdsDataCollection.Add(new AdsbData { SerialNum = AdsDataCollection.Count + 1, ICAO = "780B09" });
         }
         public ObservableCollection<AdsbData> AdsDataCollection { get; set; }
 
@@ -25,11 +25,12 @@ namespace IFFSystem.Wpf.ViewModels
         public DateTime Date
         {
             get { return data; }
-            set{  SetProperty(ref data, value);}
+            set { SetProperty(ref data, value); }
         }
 
         private DateTime time = DateTime.Now;
-        public DateTime Time {
+        public DateTime Time
+        {
             get { return time; }
             set { SetProperty(ref time, value); }
         }
@@ -37,6 +38,12 @@ namespace IFFSystem.Wpf.ViewModels
 
     public class AdsbData : Prism.Mvvm.BindableBase
     {
+        private long serialNum = 0;
+        public long SerialNum
+        {
+            get { return serialNum; }
+            set { SetProperty(ref serialNum, value); }
+        }
         private string timeMark = "2022-05-10 17:35:48";
         public string TimeMark
         {
