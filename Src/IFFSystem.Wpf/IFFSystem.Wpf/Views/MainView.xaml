@@ -180,13 +180,12 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid Margin="2">
-                    <map:MapControl
+                    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn, Duration=0:0:0.5}">
+                        <map:MapControl
                         x:Name="mapControl"
                         BorderBrush="White"
-                        BorderThickness="1"
-                        MaxZoom="24"
-                        MinZoom="1"
-                        Zoom="13" />
+                        BorderThickness="1"/>
+                    </materialDesign:TransitioningContent>
                 </Grid>
 
                 <GridSplitter
@@ -303,9 +302,9 @@
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
-                                    Foreground="#03a9f4"
                                     Width="30"
                                     Height="30"
+                                    Foreground="#03a9f4"
                                     Kind="CogOutline" />
                                 <TextBlock
                                     Margin="5,0"
@@ -336,13 +335,13 @@
                             <StackPanel Orientation="Horizontal">
                                 <Border BorderBrush="Gray" BorderThickness="1">
                                     <TextBlock
-                                    VerticalAlignment="Center"
-                                    FontSize="20"
-                                    Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}" />
+                                        VerticalAlignment="Center"
+                                        FontSize="20"
+                                        Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}" />
                                 </Border>
                                 <Button
+                                    Margin="1,0,1,0"
                                     HorizontalAlignment="Right"
-                                    Margin="8,0,1,0"
                                     materialDesign:DialogHost.DialogClosingAttached="CombinedDialogClosingEventHandler"
                                     materialDesign:DialogHost.DialogOpenedAttached="CombinedDialogOpenedEventHandler"
                                     Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
@@ -391,7 +390,7 @@
                         Margin="0,2"
                         BorderBrush="Gray"
                         BorderThickness="1"
-                        IsExpanded="False">
+                        IsExpanded="True">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
@@ -517,13 +516,13 @@
                         Margin="0,2"
                         BorderBrush="Gray"
                         BorderThickness="1"
-                        IsExpanded="False">
+                        IsExpanded="True">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
-                                    Foreground="#c6ff00"
                                     Width="30"
                                     Height="30"
+                                    Foreground="#c6ff00"
                                     Kind="CosineWave" />
                                 <TextBlock
                                     Margin="5,0"
@@ -592,13 +591,13 @@
                         Margin="0,2"
                         BorderBrush="Gray"
                         BorderThickness="1"
-                        IsExpanded="False">
+                        IsExpanded="True">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
-                                    Foreground="#18ffff"
                                     Width="30"
                                     Height="30"
+                                    Foreground="#18ffff"
                                     Kind="SineWave" />
                                 <TextBlock
                                     Margin="5,0"
@@ -671,9 +670,9 @@
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
-                                    Foreground="#8f9bff"
                                     Width="30"
                                     Height="30"
+                                    Foreground="#8f9bff"
                                     Kind="ElevatorDown" />
                                 <TextBlock
                                     Margin="5,0"
@@ -728,13 +727,13 @@
                         Margin="0,2"
                         BorderBrush="Gray"
                         BorderThickness="1"
-                        IsExpanded="True">
+                        IsExpanded="False">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon
-                                    Foreground="#b0ff57"
                                     Width="30"
                                     Height="30"
+                                    Foreground="#b0ff57"
                                     Kind="Network" />
                                 <TextBlock
                                     Margin="5,0"

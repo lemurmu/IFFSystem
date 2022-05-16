@@ -30,6 +30,7 @@ namespace IFFSystem.Wpf.Views
             InitializeComponent();
         }
 
+
         private void InitMap()
         {
             //try
@@ -41,11 +42,11 @@ namespace IFFSystem.Wpf.Views
             //    mapControl.Manager.Mode = AccessMode.CacheOnly;
             //    MessageBox.Show("No internet connection avaible, going to CacheOnly mode.", "GMap.NET Demo", MessageBoxButton.OK, MessageBoxImage.Warning);
             //}
-
-            mapControl.MapProvider = BaiduMapProvider.Instance; //google china 地图
-            mapControl.MinZoom = 2;  //最小缩放
-            mapControl.MaxZoom = 15; //最大缩放
-            mapControl.Zoom = 6;     //当前缩放
+            mapControl.Manager.Mode = AccessMode.ServerOnly;
+            mapControl.MapProvider = AMapProvider.Instance;
+            mapControl.MinZoom = 1;  //最小缩放
+            mapControl.MaxZoom = 8; //最大缩放 
+            mapControl.Zoom = 5;     //当前缩放
             mapControl.ShowCenter = false; //不显示中心十字点
             mapControl.DragButton = MouseButton.Left; //左键拖拽地图
             mapControl.Position = new PointLatLng(30.659462, 104.065735); //地图中心位置：成都

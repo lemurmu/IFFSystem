@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/Src/IFFSystem.Wpf/IFFSystem.Wpf/bin
+/Src/IFFSystem.Wpf/IFFSystem.Wpf/obj
