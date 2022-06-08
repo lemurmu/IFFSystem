@@ -46,7 +46,7 @@ namespace IFFSystem.Wpf.Views
             mapControl.MapProvider = AMapProvider.Instance;
             mapControl.MinZoom = 1;  //最小缩放
             mapControl.MaxZoom = 15; //最大缩放 
-            mapControl.Zoom = 10;     //当前缩放
+            mapControl.Zoom = 8;     //当前缩放
             mapControl.ShowCenter = false; //不显示中心十字点
             mapControl.DragButton = MouseButton.Left; //左键拖拽地图
             mapControl.Position = new PointLatLng(30.659462, 104.065735); //地图中心位置：成都

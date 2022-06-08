@@ -6,6 +6,12 @@
 #include <QPixmap>
 #include <QStringList>
 #include <QDateTime>
+#include "graphicsmap.h"
+#include <QGeoCoordinate>
+#include "maprangeringitem.h"
+#include "mappolygonitem.h"
+#include "mapellipseitem.h"
+#include "mapoperator.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -14,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->InitForm();
     this->InitTable();
+    this->InitMap();
     this->setGeometry(qApp->desktop()->availableGeometry());
 }
 
@@ -40,8 +47,8 @@ void MainWindow::InitForm(){
     ui->labIcon->setPixmap( QPixmap::fromImage(im));
     //设置lable相对于父类的位置
     ui->labIcon->setGeometry(im.rect());
-//    ui->labIcon->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
-//    ui->labIcon->setScaledContents(true);
+    //    ui->labIcon->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+    //    ui->labIcon->setScaledContents(true);
     ui->labIcon->show();
     this->setWindowTitle(ui->labTitle->text());
 
@@ -87,11 +94,11 @@ void MainWindow::InitTable(){
     //设置列数和列宽
     int width = qApp->desktop()->availableGeometry().width() - 120;
     ui->tableWidget->setColumnCount(12);
-//    ui->tableWidget->setColumnWidth(0, width * 0.06);
-//    ui->tableWidget->setColumnWidth(1, width * 0.10);
-//    ui->tableWidget->setColumnWidth(2, width * 0.06);
-//    ui->tableWidget->setColumnWidth(3, width * 0.10);
-//    ui->tableWidget->setColumnWidth(4, width * 0.15);
+    ui->tableWidget->setColumnWidth(0, width*0.08);
+    //    ui->tableWidget->setColumnWidth(1, width * 0.10);
+    //    ui->tableWidget->setColumnWidth(2, width * 0.06);
+    //    ui->tableWidget->setColumnWidth(3, width * 0.10);
+    //    ui->tableWidget->setColumnWidth(4, width * 0.15);
     ui->tableWidget->verticalHeader()->setDefaultSectionSize(25);
 
     QStringList headText;
@@ -110,10 +117,6 @@ void MainWindow::InitTable(){
     for (int i = 0; i < 300; i++) {
         ui->tableWidget->setRowHeight(i, 24);
 
-        //        QTableWidgetItem *itemDeviceID = new QTableWidgetItem(QString::number(i + 1));
-        //        QTableWidgetItem *itemDeviceName = new QTableWidgetItem(QString("测试设备%1").arg(i + 1));
-        //        QTableWidgetItem *itemDeviceAddr = new QTableWidgetItem(QString::number(i + 1));
-        //        QTableWidgetItem *itemContent = new QTableWidgetItem("防区告警");
         QTableWidgetItem *itemTime = new QTableWidgetItem(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));//时标
         QTableWidgetItem *icao=new QTableWidgetItem("780AEE");
         QTableWidgetItem *taiNumber=new QTableWidgetItem("B-6578");
@@ -153,6 +156,37 @@ void MainWindow::InitTable(){
         ui->tableWidget->setItem(i, 10, airDirection);
         ui->tableWidget->setItem(i, 11, modeData);
     }
+}
+
+void MainWindow::InitMap()
+{
+    const QGeoCoordinate centerCoord(30.67,104.06);
+    auto map = new GraphicsMap;
+    map->setTilePath("./roadmap");
+    map->setZoomRange(1,10);
+    map->setZoomLevel(8);
+    map->centerOn(centerCoord);
+
+    map->setDragMode(QGraphicsView::ScrollHandDrag);
+    map->setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
+    map->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+    map->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+//    map->setOperator(new MapPolygonOperator); //圆形操作器
+//    map->setOperator(new MapPolygonOperator); // 多边形操作器
+//    map->setOperator(new MapObjectOperator); //图标操作器
+//    map->setOperator(new MapRouteOperator); // 路线操作器
+//    map->setOperator(new MapRangeLineOperator); //测距操作器
+
+    auto range = new MapRangeRingItem;	// 距离环
+    range->setCoordinate({30.67,104.06});
+    range->setRadius(90);
+    map->scene()->addItem(range);
+//    auto ellipse = new MapEllipseItem;	// 圆
+//    ellipse->setCenter({30.67,104.06});
+//    ellipse->setSize({20e3, 20e3});
+//    ellipse->setBrush(Qt::green);
+//    map->scene()->addItem(ellipse);
+    ui->QhBox->addWidget(map);
 }
 
 void MainWindow::on_btnMenu_Min_clicked(){

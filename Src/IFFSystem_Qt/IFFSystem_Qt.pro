@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT += positioning
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = IFFSystem_Qt
@@ -42,3 +42,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     image.qrc \
     other/qss.qrc
+
+unix|win32: LIBS += -L$$PWD/./ -lGraphicsMapLibd
+
+INCLUDEPATH += $$PWD/.
+DEPENDPATH += $$PWD/.
