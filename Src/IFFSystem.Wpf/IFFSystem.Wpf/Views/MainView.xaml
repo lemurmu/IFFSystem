@@ -17,10 +17,7 @@
     Loaded="UserControl_Loaded"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <Style
-            x:Key="DataGridStyle"
-            BasedOn="{StaticResource MaterialDesignDataGrid}"
-            TargetType="DataGrid">
+        <Style x:Key="DataGridStyle" BasedOn="{StaticResource MaterialDesignDataGrid}" TargetType="DataGrid">
             <Style.Setters>
                 <!--  是否根据数据源产生列名  -->
                 <Setter Property="AutoGenerateColumns" Value="False" />
@@ -50,11 +47,7 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type DataGridCell}">
                                         <Grid>
-                                            <Border
-                                                Background="{TemplateBinding Background}"
-                                                BorderBrush="{TemplateBinding BorderBrush}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                SnapsToDevicePixels="True" />
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True" />
                                             <ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                         </Grid>
                                     </ControlTemplate>
@@ -89,10 +82,7 @@
             </Style.Setters>
         </Style>
 
-        <Style
-            x:Key="dataGridColumnHeaderStyle"
-            BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"
-            TargetType="DataGridColumnHeader">
+        <Style x:Key="dataGridColumnHeaderStyle" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}" TargetType="DataGridColumnHeader">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
     </UserControl.Resources>
@@ -110,27 +100,16 @@
             </Grid.ColumnDefinitions>
 
             <!--  标题菜单  -->
-            <materialDesign:ColorZone
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                VerticalAlignment="Stretch"
-                Mode="PrimaryMid">
+            <materialDesign:ColorZone Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" Mode="PrimaryMid">
                 <StackPanel Margin="2" Orientation="Horizontal">
-                    <Image
-                        Width="40"
-                        Height="40"
-                        Margin="10,0,10,0"
-                        Source="../Resources/company.ico" />
+                    <Image Width="40" Height="40" Margin="10,0,10,0" Source="../Resources/company.ico" />
                     <TextBlock
                         VerticalAlignment="Center"
                         FontSize="30"
                         Style="{StaticResource MaterialDesignHeadline1TextBlock}"
                         Text="敌我信号侦收识别系统"
                         TextAlignment="Center" />
-                    <RadioButton
-                        Margin="50,4,4,4"
-                        IsChecked="True"
-                        Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <RadioButton Margin="50,4,4,4" IsChecked="True" Style="{StaticResource MaterialDesignTabRadioButton}">
                         <StackPanel>
                             <materialDesign:PackIcon
                                 Width="36"
@@ -141,10 +120,7 @@
                             <TextBlock Margin="0,5" Text="ADS-B信号侦收" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="False"
-                        Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <RadioButton Margin="4" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButton}">
                         <StackPanel>
                             <materialDesign:PackIcon
                                 Width="36"
@@ -155,10 +131,7 @@
                             <TextBlock Margin="0,5" Text="IFF信号侦收" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="False"
-                        Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <RadioButton Margin="4" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButton}">
                         <StackPanel>
                             <materialDesign:PackIcon
                                 Width="36"
@@ -169,10 +142,7 @@
                             <TextBlock Margin="0,5" Text="俄制脉冲侦收" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="False"
-                        Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <RadioButton Margin="4" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButton}">
                         <StackPanel>
                             <materialDesign:PackIcon
                                 Width="36"
@@ -183,10 +153,7 @@
                             <TextBlock Margin="0,5" Text="ACARS信号侦收" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="False"
-                        Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <RadioButton Margin="4" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButton}">
                         <StackPanel>
                             <materialDesign:PackIcon
                                 Width="36"
@@ -198,10 +165,7 @@
                         </StackPanel>
 
                     </RadioButton>
-                    <RadioButton
-                        Margin="4"
-                        IsChecked="False"
-                        Style="{StaticResource MaterialDesignTabRadioButton}">
+                    <RadioButton Margin="4" IsChecked="False" Style="{StaticResource MaterialDesignTabRadioButton}">
                         <StackPanel>
                             <materialDesign:PackIcon
                                 Width="36"
@@ -240,10 +204,7 @@
                 </Grid.RowDefinitions>
                 <Grid Margin="2">
                     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=ExpandIn, Duration=0:0:0.5}">
-                        <map:MapControl
-                            x:Name="mapControl"
-                            BorderBrush="White"
-                            BorderThickness="1" />
+                        <map:MapControl x:Name="mapControl" BorderBrush="White" BorderThickness="1" />
                     </materialDesign:TransitioningContent>
                 </Grid>
 
@@ -266,76 +227,20 @@
                     Style="{StaticResource DataGridStyle}">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn
-                            Width="80"
-                            Binding="{Binding SerialNum}"
-                            Header="序号"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding TimeMark}"
-                            Header="时标"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding Frequency}"
-                            Header="频率(MHz)"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding ICAO}"
-                            Header="飞机地址码"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding TailNumber}"
-                            Header="机尾号"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding Country}"
-                            Header="国籍"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding FlightNumber}"
-                            Header="航班号/注册号"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding PlaneProperty}"
-                            Header="飞机属性"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding Lat}"
-                            Header="纬度"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding Lnt}"
-                            Header="经度"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding Height}"
-                            Header="高度(m)"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding AirSpend}"
-                            Header="航速(节)"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding AirDirection}"
-                            Header="航向(°)"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
-                        <DataGridTextColumn
-                            Width="auto"
-                            Binding="{Binding ModeData}"
-                            Header="附加报文"
-                            HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="80" Binding="{Binding SerialNum}" Header="序号" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding TimeMark}" Header="时标" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding Frequency}" Header="频率(MHz)" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding ICAO}" Header="飞机地址码" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding TailNumber}" Header="机尾号" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding Country}" Header="国籍" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding FlightNumber}" Header="航班号/注册号" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding PlaneProperty}" Header="飞机属性" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding Lat}" Header="纬度" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding Lnt}" Header="经度" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding Height}" Header="高度(m)" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding AirSpend}" Header="航速(节)" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding AirDirection}" Header="航向(°)" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
+                        <DataGridTextColumn Width="auto" Binding="{Binding ModeData}" Header="附加报文" HeaderStyle="{StaticResource dataGridColumnHeaderStyle}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -358,29 +263,14 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Expander
-                        Margin="0,2"
-                        BorderBrush="Gray"
-                        BorderThickness="1"
-                        IsExpanded="false">
+                    <Expander Margin="0,2" BorderBrush="Gray" BorderThickness="1" IsExpanded="false">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Foreground="#03a9f4"
-                                    Kind="CogOutline" />
-                                <TextBlock
-                                    Margin="5,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="15"
-                                    Text="全局操作" />
+                                <materialDesign:PackIcon Width="30" Height="30" Foreground="#03a9f4" Kind="CogOutline" />
+                                <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="15" Text="全局操作" />
                             </StackPanel>
                         </Expander.Header>
-                        <StackPanel
-                            Margin="10"
-                            HorizontalAlignment="Stretch"
-                            Orientation="Vertical">
+                        <StackPanel Margin="10" HorizontalAlignment="Stretch" Orientation="Vertical">
                             <Button Margin="1,5" Content="全局复位" />
                             <TextBlock Margin="1,5" Text="传输方式:" />
                             <ComboBox
@@ -398,10 +288,7 @@
                             <Button Margin="1,5" Content="停止传输" />
                             <StackPanel Orientation="Horizontal">
                                 <Border BorderBrush="Gray" BorderThickness="1">
-                                    <TextBlock
-                                        VerticalAlignment="Center"
-                                        FontSize="20"
-                                        Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}" />
+                                    <TextBlock VerticalAlignment="Center" FontSize="20" Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}" />
                                 </Border>
                                 <Button
                                     Margin="1,0,1,0"
@@ -418,26 +305,13 @@
                                             </Grid.RowDefinitions>
                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
                                                 <Calendar x:Name="CombinedCalendar" Margin="-1,-4,-1,0" />
-                                                <materialDesign:Clock
-                                                    x:Name="CombinedClock"
-                                                    DisplayAutomation="CycleWithSeconds"
-                                                    Is24Hours="True" />
+                                                <materialDesign:Clock x:Name="CombinedClock" DisplayAutomation="CycleWithSeconds" Is24Hours="True" />
                                             </StackPanel>
-                                            <StackPanel
-                                                Grid.Row="1"
-                                                Margin="8"
-                                                HorizontalAlignment="Right"
-                                                Orientation="Horizontal">
-                                                <Button
-                                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                                    CommandParameter="0"
-                                                    Style="{DynamicResource MaterialDesignFlatButton}">
+                                            <StackPanel Grid.Row="1" Margin="8" HorizontalAlignment="Right" Orientation="Horizontal">
+                                                <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="0" Style="{DynamicResource MaterialDesignFlatButton}">
                                                     CANCEL
                                                 </Button>
-                                                <Button
-                                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
-                                                    CommandParameter="1"
-                                                    Style="{DynamicResource MaterialDesignFlatButton}">
+                                                <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandParameter="1" Style="{DynamicResource MaterialDesignFlatButton}">
                                                     OK
                                                 </Button>
                                             </StackPanel>
@@ -457,120 +331,40 @@
                         IsExpanded="True">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Foreground="#ff6d00"
-                                    Kind="SawtoothWave" />
-                                <TextBlock
-                                    Margin="5,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="15"
-                                    Text="IFF通道参数设置" />
+                                <materialDesign:PackIcon Width="30" Height="30" Foreground="#ff6d00" Kind="SawtoothWave" />
+                                <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="15" Text="IFF通道参数设置" />
                             </StackPanel>
                         </Expander.Header>
                         <StackPanel Margin="10" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="频率:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="1090"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="MHz"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="频率:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="1090" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="MHz" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="带宽:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="100"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="MHz"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="带宽:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="100" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="MHz" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="通道1衰减:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="2"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="dB"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="通道1衰减:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="2" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="dB" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="通道2衰减:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="2"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="dB"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="通道2衰减:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="2" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="dB" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="通道3衰减:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="2"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="dB"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="通道3衰减:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="2" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="dB" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="通道4衰减:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="2"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="dB"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="通道4衰减:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="2" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="dB" TextAlignment="Center" />
                             </StackPanel>
                         </StackPanel>
                     </Expander>
@@ -583,69 +377,25 @@
                         IsExpanded="True">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Foreground="#c6ff00"
-                                    Kind="CosineWave" />
-                                <TextBlock
-                                    Margin="5,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="15"
-                                    Text="ACARS通道参数设置" />
+                                <materialDesign:PackIcon Width="30" Height="30" Foreground="#c6ff00" Kind="CosineWave" />
+                                <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="15" Text="ACARS通道参数设置" />
                             </StackPanel>
                         </Expander.Header>
                         <StackPanel Margin="10" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="频率:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="131.450"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="MHz"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="频率:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="131.450" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="MHz" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="带宽:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="12.5"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="MHz"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="带宽:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="12.5" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="MHz" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="衰减:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="2"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="dB"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="衰减:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="2" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="dB" TextAlignment="Center" />
                             </StackPanel>
                         </StackPanel>
                     </Expander>
@@ -658,69 +408,25 @@
                         IsExpanded="True">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Foreground="#18ffff"
-                                    Kind="SineWave" />
-                                <TextBlock
-                                    Margin="5,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="15"
-                                    Text="AIS通道参数设置" />
+                                <materialDesign:PackIcon Width="30" Height="30" Foreground="#18ffff" Kind="SineWave" />
+                                <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="15" Text="AIS通道参数设置" />
                             </StackPanel>
                         </Expander.Header>
                         <StackPanel Margin="10" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="频率:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="161.975"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="MHz"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="频率:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="161.975" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="MHz" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="带宽:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="20"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="MHz"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="带宽:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="20" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="MHz" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="衰减:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="80"
-                                    Margin="5"
-                                    Text="1"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="dB"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="衰减:" TextAlignment="Center" />
+                                <TextBox Width="80" Margin="5" Text="1" TextAlignment="Center" />
+                                <TextBlock Margin="5" VerticalAlignment="Center" Text="dB" TextAlignment="Center" />
                             </StackPanel>
                         </StackPanel>
                     </Expander>
@@ -733,54 +439,22 @@
                         IsExpanded="False">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Foreground="#8f9bff"
-                                    Kind="ElevatorDown" />
-                                <TextBlock
-                                    Margin="5,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="15"
-                                    Text="数据采集设置" />
+                                <materialDesign:PackIcon Width="30" Height="30" Foreground="#8f9bff" Kind="ElevatorDown" />
+                                <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="15" Text="数据采集设置" />
                             </StackPanel>
                         </Expander.Header>
                         <StackPanel Margin="10" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="存储路径:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="5"
-                                    Text="C:\doucument\record"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="存储路径:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="5" Text="C:\doucument\record" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="间隔时间:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="5"
-                                    Text="10"
-                                    TextAlignment="Center" />
-                                <TextBlock
-                                    Margin="1"
-                                    VerticalAlignment="Center"
-                                    Text="S"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="间隔时间:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="5" Text="10" TextAlignment="Center" />
+                                <TextBlock Margin="1" VerticalAlignment="Center" Text="S" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="是否压缩:"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="是否压缩:" TextAlignment="Center" />
                                 <CheckBox Margin="5" />
                             </StackPanel>
                         </StackPanel>
@@ -794,90 +468,34 @@
                         IsExpanded="False">
                         <Expander.Header>
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon
-                                    Width="30"
-                                    Height="30"
-                                    Foreground="#b0ff57"
-                                    Kind="Network" />
-                                <TextBlock
-                                    Margin="5,0"
-                                    VerticalAlignment="Center"
-                                    FontSize="15"
-                                    Text="网络通信设置" />
+                                <materialDesign:PackIcon Width="30" Height="30" Foreground="#b0ff57" Kind="Network" />
+                                <TextBlock Margin="5,0" VerticalAlignment="Center" FontSize="15" Text="网络通信设置" />
                             </StackPanel>
                         </Expander.Header>
                         <StackPanel Margin="10" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="设备IP:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="35,5,0,5"
-                                    Text="192.168.0.199"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="设备IP:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="35,5,0,5" Text="192.168.0.199" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="设备端口:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="21,5,0,5"
-                                    Text="8088"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="设备端口:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="21,5,0,5" Text="8088" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="态势IP:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="35,5,0,5"
-                                    Text="192.168.0.199"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="态势IP:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="35,5,0,5" Text="192.168.0.199" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="态势端口:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="21,5,0,5"
-                                    Text="8088"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="态势端口:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="21,5,0,5" Text="8088" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="数据库IP:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="23,5,0,5"
-                                    Text="192.168.0.199"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="数据库IP:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="23,5,0,5" Text="192.168.0.199" TextAlignment="Center" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="2"
-                                    VerticalAlignment="Center"
-                                    Text="数据库端口:"
-                                    TextAlignment="Center" />
-                                <TextBox
-                                    Width="100"
-                                    Margin="10,5"
-                                    Text="8088"
-                                    TextAlignment="Center" />
+                                <TextBlock Margin="2" VerticalAlignment="Center" Text="数据库端口:" TextAlignment="Center" />
+                                <TextBox Width="100" Margin="10,5" Text="8088" TextAlignment="Center" />
                             </StackPanel>
                         </StackPanel>
                     </Expander>
@@ -885,82 +503,29 @@
             </ScrollViewer>
 
             <!--  状态栏  -->
-            <materialDesign:ColorZone
-                Grid.Row="2"
-                Grid.ColumnSpan="2"
-                VerticalAlignment="Stretch"
-                Mode="PrimaryMid">
+            <materialDesign:ColorZone Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Stretch" Mode="PrimaryMid">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="100" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel
-                        Grid.Column="0"
-                        HorizontalAlignment="Stretch"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Margin="10,5"
-                            VerticalAlignment="Center"
-                            Text="时标: 2022-05-10" />
-                        <TextBlock
-                            Margin="30,5"
-                            VerticalAlignment="Center"
-                            Text="GPS定位: 30.10384,103.45689" />
-                        <Separator
-                            Margin="20,6,5,6"
-                            BorderBrush="White"
-                            BorderThickness="1"
-                            Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-                        <TextBlock
-                            Margin="2,5"
-                            VerticalAlignment="Center"
-                            Text="板卡温度: 68°C" />
-                        <TextBlock
-                            Margin="30,5"
-                            VerticalAlignment="Center"
-                            Text="电流: 5mA" />
-                        <TextBlock
-                            Margin="30,5"
-                            VerticalAlignment="Center"
-                            Text="电压: 10mV" />
-                        <Separator
-                            Margin="20,6,5,6"
-                            BorderBrush="White"
-                            BorderThickness="1"
-                            Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-                        <TextBlock
-                            Margin="2,5"
-                            VerticalAlignment="Center"
-                            Text="IFF版本: 2021-11-19" />
-                        <TextBlock
-                            Margin="30,5"
-                            VerticalAlignment="Center"
-                            Text="AIS版本: 2021-11-19" />
-                        <TextBlock
-                            Margin="30,5"
-                            VerticalAlignment="Center"
-                            Text="ACARS版本: 2021-11-19" />
-                        <Separator
-                            Margin="20,6,5,6"
-                            BorderBrush="White"
-                            BorderThickness="1"
-                            Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-                        <TextBlock
-                            Margin="10,5"
-                            VerticalAlignment="Center"
-                            Text="本振:正常" />
-                        <TextBlock
-                            Margin="40,5"
-                            VerticalAlignment="Center"
-                            Text="风扇:正常" />
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Stretch" Orientation="Horizontal">
+                        <TextBlock Margin="10,5" VerticalAlignment="Center" Text="时标: 2022-05-10" />
+                        <TextBlock Margin="30,5" VerticalAlignment="Center" Text="GPS定位: 30.10384,103.45689" />
+                        <Separator Margin="20,6,5,6" BorderBrush="White" BorderThickness="1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <TextBlock Margin="2,5" VerticalAlignment="Center" Text="板卡温度: 68°C" />
+                        <TextBlock Margin="30,5" VerticalAlignment="Center" Text="电流: 5mA" />
+                        <TextBlock Margin="30,5" VerticalAlignment="Center" Text="电压: 10mV" />
+                        <Separator Margin="20,6,5,6" BorderBrush="White" BorderThickness="1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <TextBlock Margin="2,5" VerticalAlignment="Center" Text="IFF版本: 2021-11-19" />
+                        <TextBlock Margin="30,5" VerticalAlignment="Center" Text="AIS版本: 2021-11-19" />
+                        <TextBlock Margin="30,5" VerticalAlignment="Center" Text="ACARS版本: 2021-11-19" />
+                        <Separator Margin="20,6,5,6" BorderBrush="White" BorderThickness="1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <TextBlock Margin="10,5" VerticalAlignment="Center" Text="本振:正常" />
+                        <TextBlock Margin="40,5" VerticalAlignment="Center" Text="风扇:正常" />
                     </StackPanel>
-                    <TextBlock
-                        Grid.Column="1"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Text="xxxxxxxx有限公司" />
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Text="xxxxxxxx有限公司" />
                 </Grid>
             </materialDesign:ColorZone>
 
